@@ -10,9 +10,12 @@
                 <p class="list-group-item" style="font-size: 1.1rem; font-weight: 500; color: #34495e;">
                     <i class="fas fa-user" style="color: #3498db;"></i> <strong>სახელი:</strong> <span style="color: #2ecc71;">{{ current_user.username }}</span>
                 </p>
-                <p class="list-group-item" style="font-size: 1.1rem; font-weight: 500; color: #34495e;">
-                    <i class="fas fa-user" style="color: #3498db;"></i> <strong>ელ-ფოსტა:</strong> <span style="color: #362ecc;">{{ current_user.email }}</span>
+                <p class="list-group-item d-flex align-items-center" style="font-size: 1.1rem; font-weight: 500; color: #34495e; background-color: #f8f9fa; border-radius: 8px; padding: 10px;">
+                    <i class="fas fa-envelope me-2" style="color: #3498db; font-size: 1.2rem;"></i> 
+                    <strong class="me-2">ელ-ფოსტა:</strong> 
+                    <span style="color: #362ecc;">{{ current_user.email }}</span>
                 </p>
+                
                 <p class="list-group-item" style="font-size: 1.1rem; font-weight: 500; color: #34495e;">
                     <i class="fas fa-venus-mars" style="color: #e74c3c;"></i> <strong>სქესი:</strong> <span style="color: #e67e22;">{{ current_user.gender }}</span>
                 </p>
