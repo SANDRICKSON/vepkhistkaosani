@@ -15,7 +15,9 @@ def send_verification_email(user_email):
     token = generate_verification_token(user_email)
     confirm_url = url_for('confirm_email', token=token, _external=True)
     subject = "Email Verification"
-    message_body = f"დააჭირეთ ამ ბმულს თქვენი ემაილის ვერიფიკაციისთვის: {confirm_url}"
+    message_body = f"მოგესალმებით, {user.username}! 😊\n\nმადლობა, რომ დაინტერესდით ჩემი პროექტით. თქვენი ანგარიში წარმატებით შეიქმნა! გთხოვთ, გაიარეთ ვერიფიკაცია შემდეგ ბმულზე:\n\n{confirm_url}\n\nმადლობა ყურადღებისთვის! 🙌"
+
+
 
     msg = Message(
         subject=subject,
