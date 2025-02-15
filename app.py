@@ -127,11 +127,13 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user and check_password_hash(user.password, form.password.data):
             if not user.is_verified:
-                flash("გთხოვთ, ჯერ ვერიფიკაცია გაიაროთ!", "warning")
+                send_verification_email(user.email)  # ხელახალი გაგზავნა
+                flash("თქვენს ელ-ფოსტაზე ვერიფიკაციის ბმული გაგზავნილია!", "warning")
                 return redirect(url_for('login'))
             login_user(user)
             return redirect(url_for("index")) 
     return render_template("login.html", form=form, title="ავტორიზაცია - ვეფხისტყაოსანი")
+
 
 @app.route("/poem")
 def poem():
