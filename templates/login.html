@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <div class="container border rounded h-74 mb-2 p-4">
+      <form method="post">
+        {{ form.hidden_tag() }}
+        
+        <div class="row mb-3">
+            <label for="{{ form.username.id }}" class="col-sm-2 col-form-label">{{ form.username.label }}</label>
+            <div class="col-sm-10">
+                {{ form.username(class="form-control", placeholder="შეიყვანეთ სახელი") }}
+                {% if form.username.errors %}
+                    <div class="text-danger">
+                        {% for error in form.username.errors %}
+                            <small>{{ error }}</small><br>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="{{ form.password.id }}" class="col-sm-2 col-form-label">{{ form.password.label }}</label>
+            <div class="col-sm-10">
+                {{ form.password(class="form-control", placeholder="შეიყვანეთ პაროლი") }}
+                {% if form.password.errors %}
+                    <div class="text-danger">
+                        {% for error in form.password.errors %}
+                            <small>{{ error }}</small><br>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-10 offset-sm-2">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </div>
+        
+      </form>
+    </div>
+
+    <style>
+        label {
+            font-family: "BPG Classic Medium", sans-serif;
+            font-size: 20px;
+        }
+        .btn {
+            font-family: "BPG Classic Medium", sans-serif;
+        }
+        label, ::placeholder {
+            font-family: "BPG Classic Medium", sans-serif;
+            font-size: 20px;
+        }
+        .text-danger {
+            font-size: 14px;
+        }
+    </style>
+
+{% endblock %}

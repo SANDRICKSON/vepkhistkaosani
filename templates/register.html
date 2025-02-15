@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <div class="container border rounded h-74 mb-2 p-4">
+      <form method="post">
+        {{ form.hidden_tag() }}
+
+        <div class="alert alert-info text-center" role="alert">
+            📧 რეგისტრაციის დასრულების შემდეგ თქვენ მიიღებთ ვერიფიკაციის ბმულს მითითებულ ელ-ფოსტაზე!
+        </div>
+
+        <div class="row mb-3">
+            <label for="{{ form.username.id }}" class="col-sm-2 col-form-label">{{ form.username.label }}</label>
+            <div class="col-sm-10">
+                {{ form.username(class="form-control", placeholder="შეიყვანეთ სახელი") }}
+            </div>
+        </div>
+
+        <!-- დამატებული email ველი -->
+        <div class="row mb-3">
+            <label for="{{ form.email.id }}" class="col-sm-2 col-form-label">{{ form.email.label }}</label>
+            <div class="col-sm-10">
+                {{ form.email(class="form-control", placeholder="შეიყვანეთ ელ-ფოსტა") }}
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <label for="{{ form.password.id }}" class="col-sm-2 col-form-label">{{ form.password.label }}</label>
+            <div class="col-sm-10">
+                {{ form.password(class="form-control", placeholder="შეიყვანეთ პაროლი") }}
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <label for="{{ form.repeat_password.id }}" class="col-sm-2 col-form-label">{{ form.repeat_password.label }}</label>
+            <div class="col-sm-10">
+                {{ form.repeat_password(class="form-control", placeholder="გაიმეორეთ პაროლი") }}
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <label for="{{ form.birthday.id }}" class="col-sm-2 col-form-label">{{ form.birthday.label }}</label>
+            <div class="col-sm-10">
+                {{ form.birthday(class="form-control") }}
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <label for="{{ form.country.id }}" class="col-sm-2 col-form-label">{{ form.country.label }}</label>
+            <div class="col-sm-10">
+                {{ form.country(class="form-select") }}
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <label for="{{ form.gender.id }}" class="col-sm-2 col-form-label">{{ form.gender.label }}</label>
+            <div class="col-sm-10">
+                {{ form.gender(class="form-check-inline") }}
+            </div>
+        </div>
+        
+        <div class="row mb-3">
+            <div class="col-sm-10 offset-sm-2">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </div>
+        
+      </form>
+    </div>
+    
+    <style>
+
+.custom-alert {
+    font-family: "BPG Classic Medium", sans-serif;}
+    
+        label {
+            font-family: "BPG Classic Medium", sans-serif;
+            font-size: 20px;
+        }
+        .btn {
+            font-family: "BPG Classic Medium", sans-serif;
+        }
+        label, ::placeholder {
+            font-family: "BPG Classic Medium", sans-serif;
+            font-size: 20px;
+        }
+        .form-select {
+            font-family: "BPG Classic Medium", sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .form-control {
+            font-family: "BPG Classic Medium", sans-serif;
+            font-weight: bold;
+        }
+    </style>
+    
+{% endblock %}
